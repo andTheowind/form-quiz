@@ -1,0 +1,20 @@
+@use '../core' as *;
+
+.rate-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $gap-xxl;
+}
+
+.rate-field__label {
+  margin: 0;
+  font-size: $font-sm;
+  font-weight: 400;
+  text-align: center;
+  color: $text-secondary;
+
+  @media (max-width: $bp-mobile) {
+    font-size: $font-xs;
+  }
+}

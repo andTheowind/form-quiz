@@ -1,0 +1,44 @@
+@use '../core' as *;
+
+.error-screen {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 40px 28px;
+  text-align: center;
+  background: $bg-card;
+  border: 1px solid $border-default;
+  border-radius: $radius-lg;
+  box-shadow: 0 12px 40px rgba(23, 15, 73, 0.06);
+}
+
+.error-screen__icon {
+  display: block;
+  max-width: 158px;
+  margin: 0 auto $gap-xl;
+}
+
+.error-screen__title {
+  margin: 0 0 $gap-sm;
+  font-size: $font-2xl;
+  font-weight: 700;
+}
+
+.error-screen__text {
+  margin: 0 0 24px;
+  font-size: $font-md;
+  color: $text-secondary;
+  word-break: break-word;
+}
+
+.error-screen__button {
+  @include button-base;
+  width: 100%;
+  max-width: 320px;
+  color: $primary-accent;
+  background: $bg-card;
+  border: 1.5px solid $primary-accent;
+
+  &:hover {
+    background: rgba($primary-accent, 0.06);
+  }
+}

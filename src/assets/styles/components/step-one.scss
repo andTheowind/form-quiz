@@ -1,0 +1,65 @@
+@use "../core" as *;
+
+.step-one {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-md;
+
+  @media (min-width: $bp-mobile) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $gap-2xl;
+  }
+
+  @media (max-width: $bp-mobile) {
+    gap: $mobile-gap;
+  }
+}
+
+.step-one__field {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-xs;
+
+  @media (max-width: $bp-mobile) {
+    gap: 5px;
+  }
+}
+
+.step-one__label {
+  font-size: $font-sm;
+  color: $text-secondary;
+
+  @media (max-width: $bp-mobile) {
+    font-size: $mobile-label-size;
+  }
+}
+
+.step-one__input {
+  @include input-base;
+
+  @media (max-width: $bp-mobile) {
+    min-height: $mobile-input-min-height;
+    font-size: $mobile-input-size;
+    padding: $mobile-gap $gap-md;
+  }
+}
+
+.step-one__select-wrap {
+  position: relative;
+}
+
+.step-one__select {
+  @include input-base;
+  @include select-with-arrow;
+
+  option {
+    color: $text-primary;
+  }
+
+  @media (max-width: $bp-mobile) {
+    min-height: $mobile-input-min-height;
+    font-size: $mobile-input-size;
+    padding: $mobile-gap $gap-md;
+  }
+}

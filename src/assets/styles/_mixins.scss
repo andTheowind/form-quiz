@@ -1,0 +1,67 @@
+@use 'variables' as *;
+
+@mixin input-base {
+  width: 100%;
+  min-height: $input-min-height;
+  padding: $gap-md $gap-lg;
+  font-size: $font-sm;
+  color: $text-primary;
+  background: $bg-input;
+  border: 1px solid $bg-input;
+  border-radius: $radius-sm;
+  outline: none;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    border-color: $border-focus;
+    box-shadow: 0 0 0 3px rgba($primary, 0.15);
+  }
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $button-min-height;
+  padding: 0 $gap-xl;
+  font-size: $font-sm;
+  border-radius: $radius-sm;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast,
+    border-color $transition-fast,
+    transform 0.1s ease;
+}
+
+@mixin status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto $gap-xl;
+  font-size: 36px;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+@mixin select-with-arrow {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 40px;
+  background-image: url('../img/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: right $gap-lg center;
+  background-size: $font-sm $gap-sm;
+  color: $text-muted;
+  cursor: pointer;
+}

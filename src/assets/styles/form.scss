@@ -1,0 +1,239 @@
+@use "core" as *;
+
+.form-shell {
+  width: 100%;
+  max-width: 638px;
+  margin: 0 auto;
+
+  @media (max-width: $bp-mobile-compact) {
+    max-width: 100%;
+  }
+}
+
+.form {
+  position: relative;
+  padding: $m-3xl;
+  background: $bg-card;
+  border-radius: $radius-xxl;
+
+  @media (max-width: $bp-mobile) {
+    padding: $mob-form-pt $mob-form-px $mob-form-pb;
+  }
+
+  @media (max-width: $bp-mobile-compact) {
+    border-radius: 16px;
+  }
+
+  @media (max-width: $bp-mobile-min) {
+    padding: $mob-form-pt-min $gap-md $gap-lg;
+  }
+}
+
+.form__close {
+  position: absolute;
+  top: 20px;
+  right: $gap-lg;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: $radius-sm;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background: $bg-hover;
+  }
+
+  @media (max-width: $bp-mobile) {
+    top: $gap-sm;
+    right: $gap-sm;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $bg-neutral;
+
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+.form__title {
+  margin: 0 0 $gap-sm;
+  text-align: center;
+  font-size: $font-3xl;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+
+  @media (max-width: $bp-mobile) {
+    margin: 0 4px 4px;
+    font-size: $mobile-title-size;
+    line-height: 1.25;
+  }
+}
+
+.form__desktop-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $gap-3xl;
+  margin-bottom: $gap-3xl;
+}
+
+.form__desktop-layout {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-2xl;
+
+  @media (max-width: $bp-mobile) {
+    gap: $mobile-gap;
+    min-height: 302px;
+  }
+}
+
+.form__footer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: $gap-md;
+  margin-top: $mt-40px;
+
+  @media (max-width: $bp-mobile) {
+    gap: $mobile-gap;
+    margin-top: 0;
+  }
+}
+
+.form__progress {
+  display: none;
+
+  @media (max-width: $bp-mobile) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-lg;
+    margin-top: $mobile-gap;
+    margin-bottom: $gap-3xl;
+  }
+}
+
+.form__progress-step {
+  @media (max-width: $bp-mobile) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    font-size: $font-sm;
+    color: $text-secondary;
+    background: $bg-neutral;
+    border-radius: 50%;
+  }
+
+  @media (max-width: $bp-mobile-compact) {
+    width: 36px;
+    height: 36px;
+    font-size: $font-lg;
+  }
+}
+
+.form__progress-step--active {
+  @media (max-width: $bp-mobile) {
+    color: #fff;
+    background: $primary;
+  }
+}
+
+.form__progress-line {
+  @media (max-width: $bp-mobile) {
+    position: relative;
+    width: 100px;
+    height: $gap-xs;
+    border-radius: 999px;
+    background: $bg-neutral;
+    overflow: hidden;
+  }
+}
+
+.form__progress-fill {
+  @media (max-width: $bp-mobile) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 999px;
+    background: $primary;
+    transition: width 0.3s ease;
+  }
+}
+
+.form__mobile-rate-hint {
+  display: none;
+
+  @media (max-width: $bp-mobile) {
+    display: block;
+    max-width: 220px;
+    margin: 0 auto $gap-md;
+    font-size: $font-xs;
+    line-height: 1.35;
+    text-align: center;
+    color: $text-secondary;
+  }
+}
+
+.form__mobile-rating {
+  display: none;
+
+  @media (max-width: $bp-mobile) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $mobile-gap;
+    margin: 0 0 $mobile-gap;
+  }
+}
+
+.form__button {
+  @include button-base;
+  flex: 1;
+  min-width: 140px;
+
+  @media (max-width: $bp-mobile) {
+    min-width: 0;
+    min-height: $button-min-height;
+    font-size: $font-sm;
+  }
+}
+
+.form__button--primary {
+  color: #fff;
+  background: $primary;
+
+  &:hover {
+    background: $primary-hover;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.form__button--secondary {
+  color: $primary-accent;
+  background: $bg-card;
+  border: 1.5px solid $primary-accent;
+
+  &:hover {
+    background: $primary-hover;
+    color: $bg-card;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}

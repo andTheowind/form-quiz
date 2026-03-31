@@ -1,0 +1,25 @@
+@use './core' as *;
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: $bg-subtle;
+
+  @media (max-width: $bp-mobile) {
+    padding: 12px;
+  }
+}
+
+:deep(.form-step-enter-active),
+:deep(.form-step-leave-active) {
+  transition:
+    opacity 0.18s ease;
+}
+
+:deep(.form-step-enter-from),
+:deep(.form-step-leave-to) {
+  opacity: 0;
+}

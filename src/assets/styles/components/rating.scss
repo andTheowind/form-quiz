@@ -1,0 +1,42 @@
+@use '../core' as *;
+
+.rating {
+  display: flex;
+  gap: $gap-xs;
+}
+
+.rating__star {
+  padding: 0;
+  border: none;
+  background: transparent;
+  width: 36px;
+  height: 36px;
+  line-height: 1;
+  cursor: pointer;
+  color: $star-empty;
+  transition: color $transition-fast;
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  &:hover {
+    color: $star-hover;
+  }
+
+  @media (max-width: $bp-mobile) {
+    width: $mobile-star-size;
+    height: $mobile-star-size;
+
+    svg {
+      width: $mobile-star-size;
+      height: $mobile-star-size;
+    }
+  }
+}
+
+.rating__star--filled {
+  color: $star-filled;
+}

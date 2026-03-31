@@ -1,0 +1,64 @@
+@use "../core" as *;
+
+.step-two {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-md;
+
+  @media (min-width: $bp-mobile) {
+    gap: $gap-md;
+  }
+
+  @media (max-width: $bp-mobile) {
+    gap: $mobile-gap;
+  }
+}
+
+.step-two__field {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-xs;
+
+  @media (max-width: $bp-mobile) {
+    gap: 5px;
+  }
+}
+
+.step-two__label {
+  font-size: $font-sm;
+  color: $text-secondary;
+
+  @media (max-width: $bp-mobile) {
+    font-size: $mobile-label-size;
+  }
+}
+
+.step-two__textarea {
+  @include input-base;
+  font-size: $font-md;
+  min-height: 144px;
+  resize: vertical;
+
+  @media (max-width: $bp-mobile) {
+    font-size: $mobile-input-size;
+    min-height: 96px;
+    padding: $mobile-gap $gap-md;
+  }
+}
+
+.step-two__select-wrap {
+  position: relative;
+}
+
+.step-two__select {
+  @include input-base;
+  @include select-with-arrow;
+
+  option {
+    color: $text-primary;
+  }
+
+  @media (max-width: $bp-mobile) {
+    font-size: $mobile-input-size;
+  }
+}

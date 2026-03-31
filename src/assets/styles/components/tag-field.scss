@@ -1,0 +1,43 @@
+@use '../core' as *;
+
+.tag-field {
+  margin-top: 4px;
+}
+
+.tag-field__answers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap-lg;
+}
+
+.tag-field__answer {
+  padding: $gap-sm $gap-lg;
+  font-size: $font-md;
+  color: $text-dark;
+  background: $bg-input;
+  border: 1px solid $border-default;
+  border-radius: $radius-xxl;
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast;
+
+  &:hover {
+    background: $tag-active-bg;
+    border-color: $tag-active-bg;
+    color: #ffffff;
+  }
+
+  &:active {
+    background: $tag-active-bg;
+    border-color: $tag-active-bg;
+    color: $text-dark;
+  }
+}
+
+.tag-field__answer--active {
+  color: #ffffff;
+  background: $tag-active-bg;
+  border-color: $tag-active-bg;
+}
