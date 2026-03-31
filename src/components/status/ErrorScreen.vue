@@ -10,9 +10,11 @@ const emit = defineEmits(['retry'])
 
 <template>
   <div class="error-screen">
-    <img :src="errorImage" class="error-screen__icon" alt="Ошибка" />
-    <h2 class="error-screen__title">Ошибка</h2>
+    <h2 class="error-screen__title">Что-то пошло не так</h2>
     <p class="error-screen__text">{{ message }}</p>
+    <div class="error-screen__icon-wrap">
+      <img :src="errorImage" class="error-screen__icon" alt="Ошибка" />
+    </div>
     <button type="button" class="error-screen__button" @click="emit('retry')">Вернуться к форме</button>
   </div>
 </template>

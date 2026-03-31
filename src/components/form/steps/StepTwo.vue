@@ -26,7 +26,6 @@ const grade = defineModel('grade', { default: '' })
         </select>
       </div>
     </div>
-
   </div>
 </template>
 

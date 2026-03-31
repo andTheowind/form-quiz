@@ -181,11 +181,11 @@ const progressPercent = computed(() => {
       </div>
 
       <div v-if="isMobile" class="form__progress" aria-label="Прогресс формы">
-        <span class="form__progress-step" :class="{ 'form__progress-step--active': currentStep === 1 }">1</span>
+        <span class="form__progress-step" :class="{ 'form__progress-step--active': currentStep === 1 || currentStep === 2}">1</span>
         <span class="form__progress-line" aria-hidden="true">
           <span class="form__progress-fill" :style="{ width: progressPercent + '%' }"></span>
         </span>
-        <span class="form__progress-step" :class="{ 'form__progress-step--active': currentStep === 2 }">2</span>
+        <span class="form__progress-step" :class="{ 'form__progress-step--active': progressPercent === 100 }">2</span>
       </div>
 
       <footer class="form__footer">
