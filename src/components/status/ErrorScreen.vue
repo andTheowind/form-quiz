@@ -20,7 +20,7 @@ const emit = defineEmits(['retry', 'close'])
       <img :src="errorImage" class="error-screen__icon" alt="Ошибка" />
     </div>
     <div class="error-screen__actions">
-      <button type="button" class="error-screen__button error-screen__button--secondary" @click="emit('close')">Вернуться к форме</button>
+      <button type="button" class="error-screen__button error-screen__button--secondary" @click="emit('close')">Закрыть</button>
       <button type="button" class="error-screen__button error-screen__button--primary" @click="emit('retry')">Попробовать снова</button>
     </div>
   </div>
