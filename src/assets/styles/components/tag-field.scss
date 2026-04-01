@@ -8,6 +8,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: $gap-lg;
+
+  @media (max-width: $bp-mobile) {
+    gap: $gap-xs;
+  }
+
 }
 
 .tag-field__answer {
@@ -26,7 +31,7 @@
   &:hover {
     background: $tag-active-bg;
     border-color: $tag-active-bg;
-    color: #ffffff;
+    color: #fff;
   }
 
   &:active {
@@ -34,10 +39,15 @@
     border-color: $tag-active-bg;
     color: $text-dark;
   }
+
+  @media (max-width: $bp-mobile) {
+    padding: $gap-sm $gap-sm;
+    font-size: $font-xs;
+  }
 }
 
 .tag-field__answer--active {
-  color: #ffffff;
+  color: #fff;
   background: $tag-active-bg;
   border-color: $tag-active-bg;
 }

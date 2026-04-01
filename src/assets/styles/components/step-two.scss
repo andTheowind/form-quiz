@@ -5,32 +5,17 @@
   flex-direction: column;
   gap: $gap-md;
 
-  @media (min-width: $bp-mobile) {
-    gap: $gap-md;
-  }
-
   @media (max-width: $bp-mobile) {
     gap: $mobile-gap;
   }
 }
 
 .step-two__field {
-  display: flex;
-  flex-direction: column;
-  gap: $gap-xs;
-
-  @media (max-width: $bp-mobile) {
-    gap: 5px;
-  }
+  @include form-field;
 }
 
 .step-two__label {
-  font-size: $font-sm;
-  color: $text-secondary;
-
-  @media (max-width: $bp-mobile) {
-    font-size: $mobile-label-size;
-  }
+  @include form-label;
 }
 
 .step-two__textarea {
@@ -51,12 +36,7 @@
 }
 
 .step-two__select {
-  @include input-base;
-  @include select-with-arrow;
-
-  option {
-    color: $text-primary;
-  }
+  @include form-select;
 
   @media (max-width: $bp-mobile) {
     font-size: $mobile-input-size;

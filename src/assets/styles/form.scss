@@ -30,38 +30,7 @@
 }
 
 .form__close {
-  position: absolute;
-  top: 20px;
-  right: $gap-lg;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  border: none;
-  border-radius: $radius-sm;
-  background: transparent;
-  cursor: pointer;
-  transition: background-color $transition-fast;
-
-  &:hover {
-    background: $bg-hover;
-  }
-
-  @media (max-width: $bp-mobile) {
-    top: $gap-sm;
-    right: $gap-sm;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: $bg-neutral;
-
-    svg {
-      width: 10px;
-      height: 10px;
-    }
-  }
+  @include close-button;
 }
 
 .form__title {
@@ -101,7 +70,7 @@
   display: flex;
   flex-wrap: nowrap;
   gap: $gap-md;
-  margin-top: $mt-40px;
+  margin-top: $mt-44px;
 
   @media (max-width: $bp-mobile) {
     gap: $mobile-gap;
@@ -205,18 +174,11 @@
 
   @media (max-width: $bp-mobile) {
     min-width: 0;
-    min-height: $button-min-height;
-    font-size: $font-sm;
   }
 }
 
 .form__button--primary {
-  color: #fff;
-  background: $primary;
-
-  &:hover {
-    background: $primary-hover;
-  }
+  @include button-primary;
 
   &:active {
     transform: translateY(1px);

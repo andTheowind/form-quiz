@@ -17,31 +17,18 @@
 }
 
 .step-one__field {
-  display: flex;
-  flex-direction: column;
-  gap: $gap-xs;
-
-  @media (max-width: $bp-mobile) {
-    gap: 5px;
-  }
+  @include form-field;
 }
 
 .step-one__label {
-  font-size: $font-sm;
-  color: $text-secondary;
-
-  @media (max-width: $bp-mobile) {
-    font-size: $mobile-label-size;
-  }
+  @include form-label;
 }
 
 .step-one__input {
   @include input-base;
 
   @media (max-width: $bp-mobile) {
-    min-height: $mobile-input-min-height;
-    font-size: $mobile-input-size;
-    padding: $mobile-gap $gap-md;
+    @include mobile-input;
   }
 }
 
@@ -50,16 +37,9 @@
 }
 
 .step-one__select {
-  @include input-base;
-  @include select-with-arrow;
-
-  option {
-    color: $text-primary;
-  }
+  @include form-select;
 
   @media (max-width: $bp-mobile) {
-    min-height: $mobile-input-min-height;
-    font-size: $mobile-input-size;
-    padding: $mobile-gap $gap-md;
+    @include mobile-input;
   }
 }

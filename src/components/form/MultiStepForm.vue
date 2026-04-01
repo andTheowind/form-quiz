@@ -124,8 +124,8 @@ const progressPercent = computed(() => {
 
 <template>
   <div class="form-shell">
-    <SuccessScreen v-if="showSuccess" @home="resetForm" />
-    <ErrorScreen v-else-if="showError" :message="errorMessage" @retry="onRetry" />
+    <SuccessScreen v-if="showSuccess" @home="resetForm" @close="resetForm" />
+    <ErrorScreen v-else-if="showError" :message="errorMessage" @retry="onRetry" @close="resetForm" />
 
     <div v-else class="form">
       <button class="form__close" type="button" aria-label="Закрыть форму" @click="onCancel">

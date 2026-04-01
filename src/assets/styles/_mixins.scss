@@ -41,16 +41,133 @@
     transform 0.1s ease;
 }
 
-@mixin status-icon {
-  display: flex;
+@mixin button-primary {
+  color: #fff;
+  background: $primary;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+@mixin mobile-input {
+  min-height: $mobile-input-min-height;
+  font-size: $mobile-input-size;
+  padding: $mobile-gap $gap-md;
+}
+
+@mixin status-card {
+  position: relative;
+  max-width: 638px;
+  margin: 0 auto;
+  padding: $m-3xl;
+  text-align: center;
+  background: $bg-card;
+  border: 1px solid $border-default;
+  border-radius: $radius-xxl;
+
+  @media (max-width: $bp-mobile) {
+    padding: $mob-form-pt $mob-form-px $mob-form-pb;
+  }
+}
+
+@mixin close-button {
+  position: absolute;
+  top: 20px;
+  right: $gap-lg;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: $radius-sm;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background: $bg-hover;
+  }
+
+  @media (max-width: $bp-mobile) {
+    top: $gap-sm;
+    right: $gap-sm;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $bg-neutral;
+
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+@mixin status-icon-wrap {
+  @media (max-width: $bp-mobile) {
+    max-width: 100px;
+    margin-block: $m-3xl;
+    margin-inline: auto;
+  }
+}
+
+@mixin status-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
   margin: 0 auto $gap-xl;
-  font-size: 36px;
-  font-weight: 700;
-  border-radius: 50%;
+}
+
+@mixin status-title {
+  margin: 0 0 $gap-sm;
+  font-size: $font-3xl;
+
+  @media (max-width: $bp-mobile) {
+    font-size: $font-lg;
+  }
+}
+
+@mixin status-text {
+  margin: 0 0 $mb-95px;
+  font-size: $font-md;
+  color: $text-secondary;
+  word-break: break-word;
+
+  @media (max-width: $bp-mobile) {
+    margin: 0;
+    font-size: $font-xs;
+  }
+}
+
+@mixin form-field {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-xs;
+
+  @media (max-width: $bp-mobile) {
+    gap: 5px;
+  }
+}
+
+@mixin form-label {
+  font-size: $font-sm;
+  color: $text-secondary;
+
+  @media (max-width: $bp-mobile) {
+    font-size: $mobile-label-size;
+  }
+}
+
+@mixin form-select {
+  @include input-base;
+  @include select-with-arrow;
+
+  option {
+    color: $text-primary;
+  }
 }
 
 @mixin select-with-arrow {
