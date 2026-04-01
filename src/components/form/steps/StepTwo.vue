@@ -19,7 +19,7 @@ const grade = defineModel('grade', { default: '' })
     <div v-if="showGrade" class="step-two__field">
       <label class="step-two__label" for="grade2">Грейд</label>
       <div class="step-two__select-wrap">
-        <select id="grade2" v-model="grade" class="step-two__select">
+        <select id="grade2" v-model="grade" class="step-two__select" :class="{ 'step-two__select--selected': grade }">
           <option v-for="opt in GRADE_OPTIONS" :key="opt.value || 'empty'" :value="opt.value">
             {{ opt.label }}
           </option>

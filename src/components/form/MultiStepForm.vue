@@ -127,8 +127,8 @@ const progressPercent = computed(() => {
     <SuccessScreen v-if="showSuccess" @home="resetForm" @close="resetForm" />
     <ErrorScreen v-else-if="showError" :message="errorMessage" @retry="onRetry" @close="resetForm" />
 
-    <div v-else class="form">
-      <button class="form__close" type="button" aria-label="Закрыть форму" @click="onCancel">
+    <form v-else class="form">
+      <button @click="onCancel" class="form__close" type="button" aria-label="Закрыть форму">
         <SvgIcon name="close" color="#A0A3BD" />
       </button>
       <h2 class="form__title">Форма обратной связи</h2>
@@ -188,14 +188,14 @@ const progressPercent = computed(() => {
         <span class="form__progress-step" :class="{ 'form__progress-step--active': progressPercent === 100 }">2</span>
       </div>
 
-      <footer class="form__footer">
+      <div class="form__footer">
         <button v-for="btn in footerButtons" :key="btn.label" type="button" class="form__button"
           :class="btn.variant === 'primary' ? 'form__button--primary' : 'form__button--secondary'"
           @click="handleFooter(btn.action)">
           {{ btn.label }}
         </button>
-      </footer>
-    </div>
+      </div>
+    </form>
   </div>
 </template>
 

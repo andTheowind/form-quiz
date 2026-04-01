@@ -55,7 +55,7 @@ const phone = defineModel('phone', { default: '' })
     <div v-if="showGrade" class="step-one__field">
       <label class="step-one__label" for="grade">Грейд</label>
       <div class="step-one__select-wrap">
-        <select id="grade" v-model="grade" class="step-one__select">
+        <select id="grade" v-model="grade" class="step-one__select" :class="{ 'step-one__select--selected': grade }">
           <option v-for="opt in GRADE_OPTIONS" :key="opt.value || 'empty'" :value="opt.value">
             {{ opt.label }}
           </option>

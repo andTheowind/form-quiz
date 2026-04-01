@@ -5,7 +5,7 @@
   min-height: $input-min-height;
   padding: $gap-md $gap-lg;
   font-size: $font-sm;
-  color: $text-primary;
+  color: $text-dark;
   background: $bg-input;
   border: 1px solid $bg-input;
   border-radius: $radius-sm;
@@ -20,7 +20,7 @@
 
   &:focus {
     border-color: $border-focus;
-    box-shadow: 0 0 0 3px rgba($primary, 0.15);
+    box-shadow: 0 0 0 2px rgba($primary, 0.15);
   }
 }
 
@@ -53,7 +53,7 @@
 @mixin mobile-input {
   min-height: $mobile-input-min-height;
   font-size: $mobile-input-size;
-  padding: $mobile-gap $gap-md;
+  padding: $mobile-gap $gap-lg;
 }
 
 @mixin status-card {
@@ -118,7 +118,11 @@
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 0 auto $gap-xl;
+  margin: 0 auto $mb-95px;
+
+  @media (max-width: $bp-mobile) {
+    margin-bottom: $gap-xl;
+  }
 }
 
 @mixin status-title {
@@ -166,7 +170,11 @@
   @include select-with-arrow;
 
   option {
-    color: $text-primary;
+    color: $text-dark;
+  }
+
+  &--selected {
+    color: $text-dark;
   }
 }
 
