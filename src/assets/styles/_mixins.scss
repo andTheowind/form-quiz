@@ -131,6 +131,8 @@
 
   @media (max-width: $bp-mobile) {
     font-size: $font-lg;
+    max-width: 265px;
+    margin-inline: auto;
   }
 }
 

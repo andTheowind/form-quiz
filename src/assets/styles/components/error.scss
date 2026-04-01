@@ -43,6 +43,10 @@
 
 .error-screen__button--primary {
   @include button-primary;
+
+  @media (max-width: $bp-mobile) {
+    order: 0;
+  }
 }
 
 .error-screen__button--secondary {
@@ -52,5 +56,9 @@
 
   &:hover {
     background: rgba($primary-accent, 0.06);
+  }
+
+  @media (max-width: $bp-mobile) {
+    order: 1;
   }
 }
