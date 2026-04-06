@@ -17,10 +17,7 @@ export function validateStepOne(formData) {
   return ''
 }
 
-export function validateEntireForm(formData) {
-  const stepOneError = validateStepOne(formData)
-  if (stepOneError) return stepOneError
-
+export function validateStepTwo(formData) {
   if (!formData.grade) {
     return 'Выберите грейд'
   }

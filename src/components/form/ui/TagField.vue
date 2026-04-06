@@ -13,11 +13,11 @@ const tags = computed(() => {
   return QUICK_ANSWER_TAGS_BY_RATING[props.rating] ?? []
 })
 
-function select(tag) {
+function toggle(tag) {
   if (quickAnswers.value.includes(tag)) {
-    quickAnswers.value = []
+    quickAnswers.value = quickAnswers.value.filter((t) => t !== tag)
   } else {
-    quickAnswers.value = [tag]
+    quickAnswers.value = [...quickAnswers.value, tag]
   }
 }
 
@@ -31,16 +31,15 @@ watch(
 
 <template>
   <div v-if="rating > 0 && tags.length" class="tag-field">
-    <div class="tag-field__answers" role="radiogroup" :aria-label="'Ответы для оценки ' + rating">
+    <div class="tag-field__answers" role="group" :aria-label="'Ответы для оценки ' + rating">
       <button
         v-for="tag in tags"
         :key="tag"
         type="button"
-        role="radio"
         class="tag-field__answer"
         :class="{ 'tag-field__answer--active': quickAnswers.includes(tag) }"
-        :aria-checked="quickAnswers.includes(tag)"
-        @click="select(tag)"
+        :aria-pressed="quickAnswers.includes(tag)"
+        @click="toggle(tag)"
       >
         {{ tag }}
       </button>
