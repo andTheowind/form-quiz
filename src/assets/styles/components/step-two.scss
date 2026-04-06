@@ -12,18 +12,6 @@
 
 .step-two__field {
   @include form-field;
-
-  &:nth-child(1) {
-    @media (max-width: $bp-mobile) {
-      order: 1;
-    }
-  }
-
-  &:nth-child(2) {
-    @media (max-width: $bp-mobile) {
-      order: 0;
-    }
-  }
 }
 
 .step-two__label {
@@ -40,17 +28,5 @@
     font-size: $mobile-input-size;
     min-height: 76px;
     padding: $mobile-gap $gap-md;
-  }
-}
-
-.step-two__select-wrap {
-  position: relative;
-}
-
-.step-two__select {
-  @include form-select;
-
-  @media (max-width: $bp-mobile) {
-    font-size: $mobile-input-size;
   }
 }

@@ -113,7 +113,7 @@
 
 .form__progress-step--active {
   @media (max-width: $bp-mobile) {
-    color: #fff;
+    color: $color-white;
     background: $primary;
   }
 }

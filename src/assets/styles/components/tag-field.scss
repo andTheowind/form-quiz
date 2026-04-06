@@ -12,7 +12,6 @@
   @media (max-width: $bp-mobile) {
     gap: $gap-xs;
   }
-
 }
 
 .tag-field__answer {
@@ -31,7 +30,7 @@
   &:hover {
     background: $tag-active-bg;
     border-color: $tag-active-bg;
-    color: #fff;
+    color: $color-white;
   }
 
   &:active {
@@ -47,7 +46,7 @@
 }
 
 .tag-field__answer--active {
-  color: #fff;
+  color: $color-white;
   background: $tag-active-bg;
   border-color: $tag-active-bg;
 }

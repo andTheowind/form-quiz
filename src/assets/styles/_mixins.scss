@@ -42,7 +42,7 @@
 }
 
 @mixin button-primary {
-  color: #fff;
+  color: $color-white;
   background: $primary;
 
   &:hover {
