@@ -14,8 +14,28 @@
   @include form-field;
 }
 
+.step-two__field--grade {
+  display: none;
+
+  @media (max-width: $bp-mobile) {
+    display: flex;
+  }
+}
+
 .step-two__label {
   @include form-label;
+}
+
+.step-two__select-wrap {
+  position: relative;
+}
+
+.step-two__select {
+  @include form-select;
+
+  @media (max-width: $bp-mobile) {
+    @include mobile-input;
+  }
 }
 
 .step-two__textarea {

@@ -14,14 +14,14 @@ export function validateStepOne(formData) {
     return 'Укажите телефон в формате +7 (900) 123 45 67'
   }
 
-  if (!formData.grade) {
-    return 'Выберите грейд'
-  }
-
   return ''
 }
 
 export function validateStepTwo(formData) {
+  if (!formData.grade) {
+    return 'Выберите грейд'
+  }
+
   if (formData.rating < 1 || formData.rating > 5) {
     return 'Пожалуйста, выберите оценку от 1 до 5 звёзд'
   }

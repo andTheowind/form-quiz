@@ -46,7 +46,7 @@ const formData = inject('formData')
       />
     </div>
 
-    <div class="step-one__field">
+    <div class="step-one__field step-one__field--grade">
       <label class="step-one__label" for="grade">Грейд</label>
       <div class="step-one__select-wrap">
         <select

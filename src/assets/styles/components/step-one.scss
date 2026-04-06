@@ -32,6 +32,12 @@
   }
 }
 
+.step-one__field--grade {
+  @media (max-width: $bp-mobile) {
+    display: none;
+  }
+}
+
 .step-one__select-wrap {
   position: relative;
 }
