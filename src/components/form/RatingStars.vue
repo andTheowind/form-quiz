@@ -5,11 +5,14 @@ import SvgIcon from '@/components/ui/SvgIcon.vue'
 const model = defineModel({ default: 0 })
 const hoverIndex = ref(0)
 
+const STAR_FILLED = '#FFE01A'
+const STAR_EMPTY = '#D9DBE9'
+
 const getStarColor = (index) => {
   if (hoverIndex.value > 0) {
-    return index <= hoverIndex.value ? '#FFB800' : '#D9DBE9'
+    return index <= hoverIndex.value ? STAR_FILLED : STAR_EMPTY
   }
-  return model.value > 0 && index <= model.value ? '#FFB800' : '#D9DBE9'
+  return model.value > 0 && index <= model.value ? STAR_FILLED : STAR_EMPTY
 }
 
 const isFilled = (index) => {
@@ -23,7 +26,7 @@ function setRating(n) {
 </script>
 
 <template>
-  <div class="rating" role="img" :aria-label="`Оценка ${model || 'не выбрана'} из 5`" @mouseleave="hoverIndex = 0">
+  <div class="rating" role="radiogroup" :aria-label="`Оценка ${model || 'не выбрана'} из 5`" @mouseleave="hoverIndex = 0">
     <button
       v-for="n in 5"
       :key="n"

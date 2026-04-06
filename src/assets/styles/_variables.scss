@@ -18,13 +18,11 @@ $bg-hover: #f2f3f8;
 $primary: #4a3aff;
 $primary-accent: #4a3aff;
 $primary-hover: #3d2fe0;
-$primary-light: #e8e5ff;
 
 $tag-active-bg: #6f6c90;
 
-$star-filled: #ffc107;
-$star-empty: #e0e0e0;
-$star-hover: #ffdb4d;
+$star-filled: #FFE01A;
+$star-empty: #D9DBE9;
 
 // --- Radii ---
 $radius-sm: 8px;
@@ -55,16 +53,15 @@ $gap-3xl: 42px;
 
 $m-3xl: 44px;
 $mt-44px: 44px;
-$mt-82px: 82px;
 $mb-95px: 95px;
 
 // --- Component sizes ---
 $input-min-height: 56px;
 $button-min-height: 56px;
+$status-action-btn-max-width: 260px;
 
 // --- Transitions ---
 $transition-fast: 0.15s ease;
-$transition-normal: 0.2s ease;
 
 // --- Breakpoints ---
 $bp-mobile: 768px;

@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, provide, ref } from 'vue'
-import SvgIcon from '@/components/ui/SvgIcon.vue'
+import CloseButton from '@/components/ui/CloseButton.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
 import RateField from '@/components/form/ui/RateField.vue'
 import TagField from '@/components/form/ui/TagField.vue'
 import SuccessScreen from '@/components/status/SuccessScreen.vue'
@@ -8,7 +9,7 @@ import ErrorScreen from '@/components/status/ErrorScreen.vue'
 import { useFeedbackForm } from '@/composables/useFeedbackForm'
 import { FORM_STEPS } from '@/constants/steps'
 
-const BP_MOBILE = 768
+const BP_MOBILE = matchMedia('(max-width: 767px)')
 const TOTAL_STEPS = FORM_STEPS.length
 
 const { formData, resetFormData } = useFeedbackForm()
@@ -25,16 +26,16 @@ const isLastStep = computed(() => currentStep.value === TOTAL_STEPS - 1)
 const currentStepComponent = computed(() => FORM_STEPS[currentStep.value].component)
 
 function updateIsMobile() {
-  isMobile.value = window.innerWidth < BP_MOBILE
+  isMobile.value = BP_MOBILE.matches
 }
 
 onMounted(() => {
   updateIsMobile()
-  window.addEventListener('resize', updateIsMobile)
+  BP_MOBILE.addEventListener('change', updateIsMobile)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('resize', updateIsMobile)
+  BP_MOBILE.removeEventListener('change', updateIsMobile)
 })
 
 function validateCurrentStep() {
@@ -106,7 +107,7 @@ function onAction(action) {
   handlers[action]?.()
 }
 
-const footerButtons = computed(() => {
+const formActions = computed(() => {
   if (!isMobile.value) {
     return [
       { label: 'Отменить', variant: 'secondary', action: 'cancel' },
@@ -123,10 +124,6 @@ const footerButtons = computed(() => {
   ]
 })
 
-const progressPercent = computed(() => {
-  if (TOTAL_STEPS <= 1) return 100
-  return (currentStep.value / (TOTAL_STEPS - 1)) * 100
-})
 </script>
 
 <template>
@@ -134,10 +131,8 @@ const progressPercent = computed(() => {
     <SuccessScreen v-if="showSuccess" @home="resetForm" @close="resetForm" />
     <ErrorScreen v-else-if="showError" :message="errorMessage" @retry="onRetry" @close="resetForm" />
 
-    <form v-else class="form">
-      <button @click="onCancel" class="form__close" type="button" aria-label="Закрыть форму">
-        <SvgIcon name="close" color="#A0A3BD" />
-      </button>
+    <form v-else class="form" @submit.prevent>
+      <CloseButton @close="onCancel" />
       <h2 class="form__title">Форма обратной связи</h2>
 
       <p v-if="isMobile" class="form__mobile-rate-hint">
@@ -153,7 +148,7 @@ const progressPercent = computed(() => {
         <TagField v-model:quick-answers="formData.quickAnswers" :rating="formData.rating" />
       </div>
 
-      <div class="form__desktop-layout">
+      <div class="form__content">
         <template v-if="isMobile">
           <Transition name="form-step" mode="out-in">
             <component :is="currentStepComponent" :key="currentStep" />
@@ -184,16 +179,14 @@ const progressPercent = computed(() => {
       </div>
 
       <div class="form__footer">
-        <button
-          v-for="btn in footerButtons"
+        <BaseButton
+          v-for="btn in formActions"
           :key="btn.action"
-          type="button"
-          class="form__button"
-          :class="btn.variant === 'primary' ? 'form__button--primary' : 'form__button--secondary'"
+          :variant="btn.variant"
           @click="onAction(btn.action)"
         >
           {{ btn.label }}
-        </button>
+        </BaseButton>
       </div>
     </form>
   </div>

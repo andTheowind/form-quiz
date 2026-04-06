@@ -1,0 +1,70 @@
+@use '../core' as *;
+
+.status-card {
+  position: relative;
+  max-width: 638px;
+  margin: 0 auto;
+  padding: $m-3xl;
+  text-align: center;
+  background: $bg-card;
+  border: 1px solid $border-default;
+  border-radius: $radius-xxl;
+
+  @media (max-width: $bp-mobile) {
+    padding: $mob-form-pt $mob-form-px $mob-form-pb;
+  }
+}
+
+.status-card__title {
+  margin: 0 0 $gap-sm;
+  font-size: $font-3xl;
+
+  @media (max-width: $bp-mobile) {
+    font-size: $font-lg;
+    max-width: 265px;
+    margin-inline: auto;
+  }
+}
+
+.status-card__text {
+  margin: 0 0 $mb-95px;
+  font-size: $font-md;
+  color: $text-secondary;
+  word-break: break-word;
+
+  @media (max-width: $bp-mobile) {
+    margin: 0;
+    font-size: $font-xs;
+  }
+}
+
+.status-card__icon-wrap {
+  @media (max-width: $bp-mobile) {
+    max-width: 100px;
+    margin-block: $m-3xl;
+    margin-inline: auto;
+  }
+}
+
+.status-card__icon {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto $mb-95px;
+
+  @media (max-width: $bp-mobile) {
+    margin-bottom: $gap-xl;
+  }
+}
+
+.status-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $gap-md;
+
+  @media (min-width: $bp-mobile) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,24 @@
+@use '../core' as *;
+
+.btn {
+  @include button-base;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn--primary {
+  @include button-primary;
+}
+
+.btn--secondary {
+  color: $primary-accent;
+  background: $bg-card;
+  border: 1.5px solid $primary-accent;
+
+  &:hover {
+    background: $primary-hover;
+    color: $color-white;
+  }
+}
