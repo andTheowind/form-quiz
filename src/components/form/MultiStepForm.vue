@@ -66,10 +66,6 @@ function resetForm() {
   errorMessage.value = ''
 }
 
-function onCancel() {
-  resetForm()
-}
-
 function onNext() {
   if (!validateCurrentStep()) {
     showError.value = true
@@ -98,7 +94,7 @@ function onRetry() {
 
 function onAction(action) {
   const handlers = {
-    cancel: onCancel,
+    cancel: resetForm,
     next: onNext,
     back: onBack,
     submit: onSubmit,
@@ -132,7 +128,7 @@ const formActions = computed(() => {
     <ErrorScreen v-else-if="showError" :message="errorMessage" @retry="onRetry" @close="resetForm" />
 
     <form v-else class="form" @submit.prevent>
-      <CloseButton @close="onCancel" />
+      <CloseButton @close="resetForm" />
       <h2 class="form__title">Форма обратной связи</h2>
 
       <p v-if="isMobile" class="form__mobile-rate-hint">
