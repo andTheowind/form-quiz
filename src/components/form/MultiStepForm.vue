@@ -95,10 +95,15 @@ function onRetry() {
   showError.value = false
 }
 
-const footerActions = { cancel: onCancel, next: onNext, back: onBack, submit: onSubmit }
+function onAction(action) {
+  const handlers = {
+    cancel: onCancel,
+    next: onNext,
+    back: onBack,
+    submit: onSubmit,
+  }
 
-function handleFooter(action) {
-  footerActions[action]?.()
+  handlers[action]?.()
 }
 
 const footerButtons = computed(() => {
@@ -185,7 +190,7 @@ const progressPercent = computed(() => {
           type="button"
           class="form__button"
           :class="btn.variant === 'primary' ? 'form__button--primary' : 'form__button--secondary'"
-          @click="handleFooter(btn.action)"
+          @click="onAction(btn.action)"
         >
           {{ btn.label }}
         </button>
