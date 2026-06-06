@@ -1,6 +1,6 @@
 <script setup>
 import { inject } from 'vue'
-import { GRADE_OPTIONS } from '@/constants/formOptions'
+import GradeSelect from '@/components/form/ui/GradeSelect.vue'
 
 const formData = inject('formData')
 </script>
@@ -9,18 +9,7 @@ const formData = inject('formData')
   <div class="step-two">
     <div class="step-two__field step-two__field--grade">
       <label class="step-two__label" for="grade-mobile">Грейд</label>
-      <div class="step-two__select-wrap">
-        <select
-          id="grade-mobile"
-          v-model="formData.grade"
-          class="step-two__select"
-          :class="{ 'step-two__select--selected': formData.grade }"
-        >
-          <option v-for="opt in GRADE_OPTIONS" :key="opt.value || 'empty'" :value="opt.value">
-            {{ opt.label }}
-          </option>
-        </select>
-      </div>
+      <GradeSelect v-model="formData.grade" field-id="grade-mobile" />
     </div>
 
     <div class="step-two__field">

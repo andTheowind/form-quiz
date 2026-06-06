@@ -12,7 +12,7 @@
 
 .form {
   position: relative;
-  padding: $m-3xl;
+  padding: $card-padding;
   background: $bg-card;
   border-radius: $radius-xxl;
 
@@ -66,7 +66,7 @@
   display: flex;
   flex-wrap: nowrap;
   gap: $gap-md;
-  margin-top: $mt-44px;
+  margin-top: $card-padding;
 
   > .btn {
     flex: 1;
@@ -132,6 +132,16 @@
   border-radius: 999px;
   background: $primary;
   transition: width 0.3s ease;
+}
+
+.form__step-error {
+  margin: $gap-sm 0 0;
+  padding: $gap-sm $gap-md;
+  font-size: $font-sm;
+  color: $error-text;
+  background: $error-bg;
+  border: 1px solid $error-border;
+  border-radius: $radius-sm;
 }
 
 .form__mobile-rate-hint {

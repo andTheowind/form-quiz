@@ -38,14 +38,3 @@
   }
 }
 
-.step-one__select-wrap {
-  position: relative;
-}
-
-.step-one__select {
-  @include form-select;
-
-  @media (max-width: $bp-mobile) {
-    @include mobile-input;
-  }
-}

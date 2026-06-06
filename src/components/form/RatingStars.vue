@@ -8,17 +8,12 @@ const hoverIndex = ref(0)
 const STAR_FILLED = '#FFE01A'
 const STAR_EMPTY = '#D9DBE9'
 
-const getStarColor = (index) => {
-  if (hoverIndex.value > 0) {
-    return index <= hoverIndex.value ? STAR_FILLED : STAR_EMPTY
-  }
-  return model.value > 0 && index <= model.value ? STAR_FILLED : STAR_EMPTY
-}
-
 const isFilled = (index) => {
   if (hoverIndex.value > 0) return index <= hoverIndex.value
   return model.value > 0 && index <= model.value
 }
+
+const getStarColor = (index) => (isFilled(index) ? STAR_FILLED : STAR_EMPTY)
 
 function setRating(n) {
   model.value = n

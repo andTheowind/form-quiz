@@ -16,13 +16,16 @@ $bg-neutral: #efeff6;
 $bg-hover: #f2f3f8;
 
 $primary: #4a3aff;
-$primary-accent: #4a3aff;
 $primary-hover: #3d2fe0;
 
 $tag-active-bg: #6f6c90;
 
 $star-filled: #FFE01A;
 $star-empty: #D9DBE9;
+
+$error-text: #c0392b;
+$error-bg: #fdf2f2;
+$error-border: #f5c6c6;
 
 // --- Radii ---
 $radius-sm: 8px;
@@ -51,9 +54,10 @@ $gap-xxl: 24px;
 $gap-2xl: 28px;
 $gap-3xl: 42px;
 
-$m-3xl: 44px;
-$mt-44px: 44px;
-$mb-95px: 95px;
+// Паддинг карточки формы/статуса
+$card-padding: 44px;
+// Отступ под изображением на экранах статуса
+$status-image-gap: 95px;
 
 // --- Component sizes ---
 $input-min-height: 56px;

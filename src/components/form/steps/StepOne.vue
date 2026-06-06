@@ -1,7 +1,7 @@
 <script setup>
 import { inject } from 'vue'
 import { vMaska } from 'maska/vue'
-import { GRADE_OPTIONS } from '@/constants/formOptions'
+import GradeSelect from '@/components/form/ui/GradeSelect.vue'
 
 const formData = inject('formData')
 </script>
@@ -48,18 +48,7 @@ const formData = inject('formData')
 
     <div class="step-one__field step-one__field--grade">
       <label class="step-one__label" for="grade">Грейд</label>
-      <div class="step-one__select-wrap">
-        <select
-          id="grade"
-          v-model="formData.grade"
-          class="step-one__select"
-          :class="{ 'step-one__select--selected': formData.grade }"
-        >
-          <option v-for="opt in GRADE_OPTIONS" :key="opt.value || 'empty'" :value="opt.value">
-            {{ opt.label }}
-          </option>
-        </select>
-      </div>
+      <GradeSelect v-model="formData.grade" field-id="grade" />
     </div>
   </div>
 </template>

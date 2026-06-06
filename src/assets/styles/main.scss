@@ -23,3 +23,31 @@ select,
 textarea {
   font: inherit;
 }
+
+// Глобальные классы переходов для <Transition name="form-step"> в MultiStepForm.vue
+.form-step-enter-active,
+.form-step-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.form-step-enter-from,
+.form-step-leave-to {
+  opacity: 0;
+}
+
+// Direction-модификаторы: slide по направлению навигации
+.form-step-enter-from--forward {
+  transform: translateX(30px);
+}
+
+.form-step-leave-to--forward {
+  transform: translateX(-30px);
+}
+
+.form-step-enter-from--backward {
+  transform: translateX(-30px);
+}
+
+.form-step-leave-to--backward {
+  transform: translateX(30px);
+}

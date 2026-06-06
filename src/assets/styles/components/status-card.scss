@@ -4,7 +4,7 @@
   position: relative;
   max-width: 638px;
   margin: 0 auto;
-  padding: $m-3xl;
+  padding: $card-padding;
   text-align: center;
   background: $bg-card;
   border: 1px solid $border-default;
@@ -27,7 +27,7 @@
 }
 
 .status-card__text {
-  margin: 0 0 $mb-95px;
+  margin: 0 0 $status-image-gap;
   font-size: $font-md;
   color: $text-secondary;
   word-break: break-word;
@@ -41,7 +41,7 @@
 .status-card__icon-wrap {
   @media (max-width: $bp-mobile) {
     max-width: 100px;
-    margin-block: $m-3xl;
+    margin-block: $card-padding;
     margin-inline: auto;
   }
 }
@@ -50,7 +50,7 @@
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 0 auto $mb-95px;
+  margin: 0 auto $status-image-gap;
 
   @media (max-width: $bp-mobile) {
     margin-bottom: $gap-xl;

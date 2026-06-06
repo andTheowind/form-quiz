@@ -13,14 +13,3 @@
     align-items: flex-start;
   }
 }
-
-:deep(.form-step-enter-active),
-:deep(.form-step-leave-active) {
-  transition:
-    opacity 0.18s ease;
-}
-
-:deep(.form-step-enter-from),
-:deep(.form-step-leave-to) {
-  opacity: 0;
-}

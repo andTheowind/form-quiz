@@ -1,0 +1,13 @@
+@use '../core' as *;
+
+.grade-select-wrap {
+  position: relative;
+}
+
+.grade-select {
+  @include form-select;
+
+  @media (max-width: $bp-mobile) {
+    @include mobile-input;
+  }
+}
